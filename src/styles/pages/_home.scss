@@ -1,0 +1,132 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+// 4 main blocks
+// Block 1 - Containing the hero landing "Hi" section
+#block_one_container{
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    overflow: hidden;
+    height: 100vh;
+
+    // Purple name highlight
+    .name{
+        color: $purple-color;
+    }
+    
+    // Star Animations
+    @function multiple-box-shadow ($n){  // n is number of stars required
+        $value: '#{random(2000)}px #{random(2000)}px #FFF';
+        @for $i from 2 through $n{
+        $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+        }
+        @return unquote($value);
+    }
+    
+    $shadows-small:  multiple-box-shadow(700);
+    $shadows-medium: multiple-box-shadow(200);
+    $shadows-big:    multiple-box-shadow(100);
+
+    @mixin starFactory ($width, $height, $animationDur, $shadowType){
+        width: $width;
+        height: $height;
+        background: transparent;
+        box-shadow: $shadowType;
+        animation: animStar $animationDur linear infinite;
+
+        &:after{
+            content: " ";
+            position: absolute;
+            top: 2000px;
+            width: $width;
+            height: $height;
+            background: transparent;
+            box-shadow: $shadowType;
+        }
+    }
+
+    #stars{
+        @include starFactory(1px, 1px, 50s, $shadows-small);
+    }
+        
+    #stars2{
+        @include starFactory(2px, 2px, 100s, $shadows-medium);
+    }
+
+    #stars3{
+        @include starFactory(3px, 3px, 150s, $shadows-big);
+    }
+
+    @keyframes animStar{
+        from {transform: translateY(0px);}
+        to {transform: translateY(-2000px);}
+    }
+
+    #main_content_container{
+        position: absolute;
+        top: 35%;
+        left: 0;
+        right: 0;
+
+        color: $white-color;
+        text-align: center;
+        font-family: 'lato',sans-serif;
+        font-weight: 300;
+        font-size: 2rem;
+
+        padding: 3vw;
+
+        @media only screen and (min-width: $tablet-min-size) {
+            font-size: 3rem;
+            top: 35%;
+        }
+
+        @media only screen and (min-width: $desktop-min-size) {
+            font-size: 4rem;
+            top: 34%;
+        }
+    }
+
+    // Used to horizontally align the view my work container
+    #outer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #view_my_work_container{
+        width: 200px;
+        height: 50px;
+        border: 3px solid $white-color;
+
+        position: absolute;
+        font-size: 1.2rem;
+        padding: 8px;
+        margin-top: 50px;
+
+        // Re-align the text to center
+        text-align: left;
+        padding-left: 30px;
+
+        @media only screen and (min-width: $tablet-min-size) {
+            width: 300px;
+            height: 70px;
+            font-size: 1.8rem;
+            padding-left: 45px;
+            padding-top: 10px;
+            margin-top: 70px;
+        }
+
+        .icon{
+            position: absolute;
+            margin-left: 5px;
+            margin-top: 2px;
+
+            @media only screen and (min-width: $tablet-min-size) {
+                font-size: 2rem;
+                margin-top: 6px;
+                margin-left: 8px;
+            }
+        }
+    }
+}
