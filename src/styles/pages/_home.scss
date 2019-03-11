@@ -129,4 +129,113 @@
             }
         }
     }
+
+    a{
+        color: $white-color;
+    }
+}
+
+// Block 2 Container - Contains "About" me stuff
+#block_two_container{
+    #background_block{
+        display: flex;
+        position: absolute;
+
+        #left_block_colour{
+            width: 50vw;
+            height: 50vh;
+            flex-basis: 50%;
+            background: #000000;
+        }
+
+        #right_block_colour{
+            width: 50vw;
+            height: 50vh;
+            flex-basis: 50%;
+            background: $blue-color;
+        }
+    }
+
+    #outerWrap{
+        width: 100vw;
+        height: 30vh;
+        position: relative;
+        z-index: 0;
+    }
+
+    $main_text_container_width: 85vw;
+    $main_text_container_height: 32vh;
+    $main_text_container_left_pos: 5vw;
+    $main_text_container_top_pos: 5vh;
+
+    #main_text_container{
+        h1{
+            font-family: 'RobotoBl';
+            font-size: 3vh;
+            margin: 0;
+            width: 50vw;
+            text-align: center;
+        }
+
+        hr{
+            height: 0.9vh;
+            width: 22vw;
+            border: none;
+            background: #000000;
+            margin: 0;
+            margin-left: 14.5vw;
+        }
+
+        .p1{
+            width: 60vw;
+        }
+
+        .dot {
+            height: 22vw;
+            width: 22vw;
+            background-color: #000000;
+            border-radius: 50%;
+            // display: absolute;
+            float: right;
+            margin-top: -3vh;
+            margin-right: -2.5vw;
+          }
+        
+        position: absolute;
+        color: $text-color;
+        background: $white-color;
+
+        font-size: 2.1vh;
+        width: $main_text_container_width;
+        height: $main_text_container_height;
+        left: $main_text_container_left_pos;
+        top: $main_text_container_top_pos;
+        z-index: 3;
+
+        padding-left: 24px;
+        padding-top: 16px;
+        padding-right: 24px;
+
+        font-family: 'RobotoR';
+    }
+    
+    #black_bottom_shade{
+        position: absolute;
+        top: $main_text_container_top_pos + 1.5vh;
+        left: $main_text_container_left_pos + 3.6vw;
+        width: $main_text_container_width;
+        height: $main_text_container_height;
+        background: rgb(49, 49, 49);
+        z-index: 2;
+    }
+
+    #purple_right_shade{
+        position: absolute;
+        top: $main_text_container_top_pos - 2.4vh;
+        left: $main_text_container_left_pos + 9vw;
+        width: $main_text_container_width - 2vw;
+        height: $main_text_container_height;
+        background: #662D8F;
+        z-index: 1;
+    }
 }
