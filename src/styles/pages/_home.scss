@@ -149,6 +149,7 @@
 // Block 2 Container - Contains "About" me stuff
 #block_two_container{
     background: linear-gradient(90deg, #000 50%, $blue-color 50%);
+    padding-bottom: 2vh;
 
     #outerWrap{
         width: 100vw;
@@ -164,24 +165,18 @@
 
     #main_text_container{
         h1{
-            font-family: 'RobotoBl';
-            font-size: 1.5rem;
+            font-family: 'lato';
+            font-size: 2rem;
             margin: 0;
-            width: 50vw;
-            text-align: center;
+            font-weight: normal;
         }
 
         hr{
-            height: 0.9vh;
+            height: 0.4vh;
             width: 22vw;
             border: none;
             background: #000000;
-            margin: 0;
-            margin-left: 14.5vw;
-        }
-
-        .p1{
-            width: 50vw;
+            margin: 0 auto 0 auto;
         }
 
         .dot {
@@ -190,26 +185,28 @@
             background-color: #000000;
             border-radius: 50%;
             // display: absolute;
-            float: right;
-            margin-top: -3vh;
+            float: left;
+            // margin-top: -3vh;
           }
         
         position: absolute;
         color: $text-color;
         background: $white-color;
+        text-align: center;
 
-        font-size: 1rem;
+        font-size: 1.1rem;
         width: $main_text_container_width;
         height: $main_text_container_height;
         left: $main_text_container_left_pos;
         top: $main_text_container_top_pos;
         z-index: 3;
 
-        padding-left: 24px;
+        padding-left: 20px;
         padding-top: 16px;
-        padding-right: 24px;
+        padding-right: 20px;
 
-        font-family: 'RobotoR';
+        letter-spacing: .04em;
+        font-family: 'lato';
     }
     
     #black_bottom_shade{
@@ -260,15 +257,17 @@
         }
 
         .description{
-            font-family: 'Roboto';
+            font-family: 'Lato';
             color: #fff;
-            background-color: rgb(0, 0, 0);
+            border: 1px solid rgba(255, 255, 255, 0.089);
+            background: radial-gradient(ellipse at bottom, rgba(6, 14, 20, 0.767) 0%, #090A0F 100%);
+            // background-color: rgb(0, 0, 0);
+            // background: linear-gradient(90deg, $blue-color, 50%, #000 50%);
             width: 82vw;
-            padding: 10px;
-            font-size: 0.9rem;
+            padding: 16px;
+            font-size: 1.1rem;
             margin-left: 4vw;
             margin-top: -1.2vw;
-            // position: absolute;
             z-index: 0;
         }
 
@@ -280,4 +279,14 @@
             font-size: 3rem;
         }
     }
+
+    hr{
+        border: 0;
+        width: 70vw;
+        background-color: #fff;
+        height: 1vh;
+    }
 }
+
+
+
