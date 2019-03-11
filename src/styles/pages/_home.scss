@@ -5,7 +5,8 @@
 // 4 main blocks
 // Block 1 - Containing the hero landing "Hi" section
 #block_one_container{
-    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    // background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    background-image: linear-gradient(to top, #86377b 20%, #27273c 85%);
     overflow: hidden;
     height: 100vh;
 
@@ -76,14 +77,24 @@
 
         padding: 3vw;
 
+        // Landscape configuration for phones
+        // Default: all iPhones
+        @media screen and (orientation:landscape){
+            top: 22%;
+        }
+
         @media only screen and (min-width: $tablet-min-size) {
             font-size: 3rem;
             top: 35%;
         }
 
+        @media only screen and (min-width: $tablet-min-size) and (orientation:landscape) {
+            top: 22%;
+        }
+
         @media only screen and (min-width: $desktop-min-size) {
             font-size: 4rem;
-            top: 34%;
+            top: 30%;
         }
     }
 
@@ -137,41 +148,24 @@
 
 // Block 2 Container - Contains "About" me stuff
 #block_two_container{
-    #background_block{
-        display: flex;
-        position: absolute;
-
-        #left_block_colour{
-            width: 50vw;
-            height: 50vh;
-            flex-basis: 50%;
-            background: #000000;
-        }
-
-        #right_block_colour{
-            width: 50vw;
-            height: 50vh;
-            flex-basis: 50%;
-            background: $blue-color;
-        }
-    }
+    background: linear-gradient(90deg, #000 50%, $blue-color 50%);
 
     #outerWrap{
         width: 100vw;
-        height: 30vh;
+        height: 20rem;
         position: relative;
         z-index: 0;
     }
 
     $main_text_container_width: 85vw;
-    $main_text_container_height: 32vh;
+    $main_text_container_height: 16rem;
     $main_text_container_left_pos: 5vw;
     $main_text_container_top_pos: 5vh;
 
     #main_text_container{
         h1{
             font-family: 'RobotoBl';
-            font-size: 3vh;
+            font-size: 1.5rem;
             margin: 0;
             width: 50vw;
             text-align: center;
@@ -187,7 +181,7 @@
         }
 
         .p1{
-            width: 60vw;
+            width: 50vw;
         }
 
         .dot {
@@ -198,14 +192,13 @@
             // display: absolute;
             float: right;
             margin-top: -3vh;
-            margin-right: -2.5vw;
           }
         
         position: absolute;
         color: $text-color;
         background: $white-color;
 
-        font-size: 2.1vh;
+        font-size: 1rem;
         width: $main_text_container_width;
         height: $main_text_container_height;
         left: $main_text_container_left_pos;
@@ -221,9 +214,9 @@
     
     #black_bottom_shade{
         position: absolute;
-        top: $main_text_container_top_pos + 1.5vh;
-        left: $main_text_container_left_pos + 3.6vw;
-        width: $main_text_container_width;
+        top: $main_text_container_top_pos + 2.2vh;
+        left: $main_text_container_left_pos + 8.6vw;
+        width: $main_text_container_width - 4.5vw;
         height: $main_text_container_height;
         background: rgb(49, 49, 49);
         z-index: 2;
@@ -232,10 +225,59 @@
     #purple_right_shade{
         position: absolute;
         top: $main_text_container_top_pos - 2.4vh;
-        left: $main_text_container_left_pos + 9vw;
+        left: $main_text_container_left_pos + 9.5vw;
         width: $main_text_container_width - 2vw;
-        height: $main_text_container_height;
+        height: $main_text_container_height - 2rem;
         background: #662D8F;
         z-index: 1;
+    }
+
+    #fer_container{
+        position: relative;
+        width: 90vw;
+        color: $text-color;
+
+        left: 5%;
+        right: 5%;
+        margin-top: 2vh;
+
+        .card_container{
+            margin-top: 2vh;
+            background: rgba(255, 255, 255, 0);
+        }
+
+        .header{
+            // width: 82vw;
+            background-color: #fff;
+            color: #000;
+            width: auto;
+            height: 2.5rem;
+            font-size: 2rem;
+            font-family: 'RobotoB';
+            padding-left: 0.1rem;
+            padding-right: 0.1rem;
+            z-index: 1;
+        }
+
+        .description{
+            font-family: 'Roboto';
+            color: #fff;
+            background-color: rgb(0, 0, 0);
+            width: 82vw;
+            padding: 10px;
+            font-size: 0.9rem;
+            margin-left: 4vw;
+            margin-top: -1.2vw;
+            // position: absolute;
+            z-index: 0;
+        }
+
+        .e_override{
+            font-size: 2.4rem;
+        }
+
+        .r_override{
+            font-size: 3rem;
+        }
     }
 }
