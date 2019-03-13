@@ -343,9 +343,10 @@ hr{
     position: relative;
     background: rgb(238, 236, 236);
     width: 100vw;
-    height: 100vh;
+    height: auto;
 
     padding-top: 3vh;
+    padding-bottom: 3vh;
 
     h1{
         margin: 0;
@@ -428,10 +429,11 @@ hr{
     }
 
     .bar_container{
-        width: 100%;
+        width: 90vw;
         height: 3.5vh;
         background: #E4E4E4;
         display: block;
+        margin-top: 0.75vh;
 
         .bar_label{
             width: 25%;
@@ -447,10 +449,11 @@ hr{
         }
 
         .bar_progress{
-            width: 50%;
+            width: 0%;
             height: inherit;
             background: #461F68;
             float: left;
+            // visibility: hidden;
         }
 
         .bar_percentage_label{
