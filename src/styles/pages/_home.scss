@@ -2,6 +2,26 @@
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
 
+h1{
+    font-family: 'lato';
+    font-size: 2rem;
+    margin: 0;
+    font-weight: normal;
+    text-align: center;
+    color: $text-color;
+    padding-top: 4.5vh;
+    letter-spacing: 0.1em;
+}
+
+hr{
+    border: 0;
+    width: 40vw;
+    background-color: $text-color;
+    height: 0.8vh;
+    padding: 0;
+    margin: 1.1vh auto 0 auto;
+}
+
 // 4 main blocks
 // Block 1 - Containing the hero landing "Hi" section
 #block_one_container{
@@ -151,104 +171,14 @@
     // background: linear-gradient(90deg, #000 50%, $blue-color 50%);
     padding-bottom: 2vh;
     background: rgb(240, 240, 240);
+    position: relative;
 
-    h1{
-        font-family: 'lato';
-        font-size: 2rem;
-        margin: 0;
-        font-weight: normal;
-        text-align: center;
-        color: $text-color;
-        padding-top: 4.5vh;
-        letter-spacing: 0.1em;
+    .animated{
+        visibility: hidden;
     }
 
-    hr{
-        border: 0;
-        width: 40vw;
-        background-color: $text-color;
-        height: 0.8vh;
-        padding: 0;
-        margin: 1.1vh auto 0 auto;
-    }
-
-    #outerWrap{
-        width: 100vw;
-        height: 20rem;
-        position: relative;
-        z-index: 0;
-    }
-
-    $main_text_container_width: 85vw;
-    $main_text_container_height: 16rem;
-    $main_text_container_left_pos: 5vw;
-    $main_text_container_top_pos: 5vh;
-
-    .dot {
-        height: 2vw;
-        width: 1.8vw;
-        background-color: rgb(179, 177, 177);
-        border-radius: 50%;
-        margin: 2vh auto 0 auto;
-        // display: absolute;
-        // float: left;
-        // margin-top: -3vh;
-      }
-
-    #main_text_container{
-        h1{
-            font-family: 'lato';
-            font-size: 2rem;
-            margin: 0;
-            font-weight: normal;
-        }
-
-        hr{
-            height: 0.2vh;
-            width: 22vw;
-            border: none;
-            background: #000000;
-            margin: 0 auto 0 auto;
-        }
-        
-        position: absolute;
-        color: $text-color;
-        background: $white-color;
-        text-align: center;
-
-        font-size: 1.1rem;
-        width: $main_text_container_width;
-        height: $main_text_container_height;
-        left: $main_text_container_left_pos;
-        top: $main_text_container_top_pos;
-        z-index: 3;
-
-        padding-left: 20px;
-        padding-top: 16px;
-        padding-right: 20px;
-
-        letter-spacing: .04em;
-        font-family: 'lato';
-    }
-    
-    #black_bottom_shade{
-        position: absolute;
-        top: $main_text_container_top_pos + 2.2vh;
-        left: $main_text_container_left_pos + 8.6vw;
-        width: $main_text_container_width - 4.5vw;
-        height: $main_text_container_height;
-        background: rgb(49, 49, 49);
-        z-index: 2;
-    }
-
-    #purple_right_shade{
-        position: absolute;
-        top: $main_text_container_top_pos - 2.4vh;
-        left: $main_text_container_left_pos + 9.5vw;
-        width: $main_text_container_width - 2vw;
-        height: $main_text_container_height - 2rem;
-        background: #662D8F;
-        z-index: 1;
+    .visible{
+        visibility: visible !important;
     }
 
     #fer_container{
@@ -277,8 +207,6 @@
         }
 
         .header{
-            // width: 82vw;
-            // background-color: rgba(255, 255, 255, 0.829);
             color: #000;
             width: auto;
             height: 55px;
@@ -299,14 +227,6 @@
             margin: 0 auto 0 auto;
             text-align: center;
         }
-
-        // .e_override{
-        //     font-size: 2rem;
-        // }
-
-        // .r_override{
-        //     font-size: 2.3rem;
-        // }
     }
 
     .divider{
@@ -352,29 +272,100 @@
           color:#999;
         }
       }
+
+      #outerWrap{
+        width: 100vw;
+        height: 25rem;
+        position: relative;
+        z-index: 0;
+    }
+
+    $main_text_container_width: 85vw;
+    $main_text_container_height: 20rem;
+    $main_text_container_left_pos: 5vw;
+    $main_text_container_top_pos: 5vh;
+
+    .dot {
+        height: 2vw;
+        width: 1.8vw;
+        background-color: rgb(179, 177, 177);
+        border-radius: 50%;
+        margin: 2vh auto 0 auto;
+        // display: absolute;
+        // float: left;
+        // margin-top: -3vh;
+      }
+
+    #main_text_container{        
+        position: absolute;
+        color: $text-color;
+        background: $white-color;
+        text-align: center;
+
+        font-size: 1.1rem;
+        width: $main_text_container_width;
+        height: $main_text_container_height;
+        left: $main_text_container_left_pos;
+        top: $main_text_container_top_pos;
+        z-index: 3;
+
+        padding-left: 20px;
+        padding-top: 16px;
+        padding-right: 20px;
+
+        font-family: 'lato';
+    }
+    
+    #black_bottom_shade{
+        position: absolute;
+        top: $main_text_container_top_pos + 2.2vh;
+        left: $main_text_container_left_pos + 6.6vw;
+        width: $main_text_container_width - 4.5vw;
+        height: $main_text_container_height;
+        background: rgb(49, 49, 49);
+        z-index: 2;
+    }
+
+    #purple_right_shade{
+        position: absolute;
+        top: $main_text_container_top_pos - 1.4vh;
+        left: $main_text_container_left_pos + 5.5vw;
+        width: $main_text_container_width - 2vw;
+        height: $main_text_container_height - 2rem;
+        background: #662D8F;
+        z-index: 1;
+    }
       
 }
 
 // Skillsets container
 #block_three_container{
     position: relative;
-    background: #F0F0F0;
+    background: rgb(238, 236, 236);
     width: 100vw;
     height: 100vh;
 
+    padding-top: 3vh;
+
+    h1{
+        margin: 0;
+        padding-top: 0;
+    }
+
     #skillsetCircle{
         background: url('../assets/Asset 3.svg') no-repeat;
-        width: 70vw;
-        height: 130px;
-        margin-top: -1.5vh;
-        margin-left: 3vw;
-        position: absolute;
+        width: 100px;
+        height: 100px;
+        
+        position: relative;
+        margin: 0 auto 0 auto;
+
         z-index: 1;
     }
 
     #title_container{
-        height: 15vh;
-        width: 90vw;
+        height: 10vh;
+        width: 100vw;
 
         .title{
             width: 90vw;
@@ -383,20 +374,11 @@
             font-size: 1.5rem;
             padding-left: 47vw;
             padding-bottom: 2vh;
-            padding-top: 2vh;
+            // padding-top: 2vh;
             color: #fff;
             font-family: 'RobotoBl';
-            margin-top: 3vh;
+            // margin-top: 3vh;
         }
-
-        hr{
-            border: 0;
-            width: 35vw;
-            background-color: #fff;
-            height: 1vh;
-            margin: 0;
-        }
-
     }
 
     #outerWrap{
@@ -409,7 +391,7 @@
     $main_text_container_width: 85vw;
     $main_text_container_height: 16rem;
     $main_text_container_left_pos:10vw;
-    $main_text_container_top_pos: 5vh;
+    $main_text_container_top_pos: 1vh;
 
     #main_text_container{
         position: absolute;
@@ -419,7 +401,6 @@
         font-size: 1.1rem;
         width: 100vw;
         height: $main_text_container_height;
-        top: 4vh;
         padding: 16px;
         z-index: 3;
         
@@ -429,7 +410,7 @@
     #blue_bottom_shade{
         position: absolute;
         top: $main_text_container_top_pos + 2vh;
-        left: $main_text_container_left_pos - 5.6vw;
+        left: $main_text_container_left_pos - 6.6vw;
         width: $main_text_container_width;
         height: $main_text_container_height;
         background: #0071BA;
