@@ -72,12 +72,9 @@ $(document).ready(function() {
       let sliderArrowsL = photoContainer.find('.left');
       let sliderArrowsR = photoContainer.find('.right');
 
-      console.log(sliderArrowsL);
-      console.log(maxSlides);
-
       sliderArrowsL.bind('click', function(){
         // Hide current slide
-        console.log($(screenshots[currentSlide]).hide());
+        $(screenshots[currentSlide]).hide();
 
         if (currentSlide === 0){
           currentSlide = maxSlides;
@@ -87,12 +84,12 @@ $(document).ready(function() {
         }
 
         // Reveal next slide
-        console.log($(screenshots[currentSlide]).show());
+        $(screenshots[currentSlide]).show();
       });
 
       sliderArrowsR.bind('click', function(){
         // Hide current slide
-        console.log($(screenshots[currentSlide]).hide());
+        $(screenshots[currentSlide]).hide();
 
         if (currentSlide === maxSlides){
           currentSlide = 0;
@@ -100,11 +97,8 @@ $(document).ready(function() {
         else{
           currentSlide += 1;
         }
-
-                // Reveal next slide
-                console.log($(screenshots[currentSlide]).show());
+          // Reveal next slide
+          $(screenshots[currentSlide]).show();
       });
-
-      // console.log(screenshots);
     });
   });

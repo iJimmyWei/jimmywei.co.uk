@@ -525,16 +525,15 @@ hr{
         }
     }
 
+    .slide{
+        height: inherit;
+        width: inherit;
+    }
 
     #myWeather_project{
         background-size: 100% 330px;
         height: 330px;
         width: 100%;
-
-        .slide{
-            height: inherit;
-            width: inherit;
-        }
 
         #one{
             background: url("../assets/screenshots/project1_1.jpg") center center/cover;
@@ -550,17 +549,35 @@ hr{
     }
 
     #bcca_project{
-        background: url("../assets/screenshots/project2_1.jpg") center center/cover;
         background-size: 100% 330px;
         height: 330px;
         width: 100%;
+
+        #one{
+            background: url("../assets/screenshots/project2_1.jpg") center center/cover;
+        }
+
+        #two{
+            background: url("../assets/screenshots/project2_2.jpg") center center/cover;
+        }
+
+        #three{
+            background: url("../assets/screenshots/project2_3.jpg") center center/cover;
+        }
     }
 
     #tetris_project{
-        background: url("../assets/screenshots/project3_1.jpg") no-repeat;
         background-size: 100% 330px;
         height: 330px;
         width: 100%;
+
+        #one{
+            background: url("../assets/screenshots/project3_1.jpg") center center/cover;
+        }
+
+        #two{
+            background: url("../assets/screenshots/project3_2.jpg") center center/cover;
+        }
     }
 
     #tipcalc_project{
@@ -574,6 +591,7 @@ hr{
 
     .sliderArrows{
         text-align: center;
+        padding-top: 16px;
 
         .icon{
             background: rgba(0, 0, 0, 0.068);
