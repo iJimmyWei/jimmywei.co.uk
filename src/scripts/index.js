@@ -44,8 +44,67 @@ $(document).ready(function() {
                 }, 1200);
             }
             this.hasAnimated = true;
-        //   $(this).addClass('animated fadeInLeft visible');
         }
       });
+    });
+
+    // Search for all cards and apply slideshow functionality to them
+    $('.card').each(function() {
+      // Get the photocontainer
+      let photoContainer = $(this).find('.photo_container');
+      let slideshow = photoContainer.find('.slideshow');
+      let screenshots = slideshow.children();
+
+      let currentSlide = 0;
+      let maxSlides = screenshots.length - 1;
+
+      // Loop through each slide
+      screenshots.each(function() {
+        $(this).addClass('slide');
+
+        // Hide every slide except first
+        if (!$(this).hasClass('first')){
+          $(this).hide();
+        }
+      });
+        
+      // Bind the arrow functions
+      let sliderArrowsL = photoContainer.find('.left');
+      let sliderArrowsR = photoContainer.find('.right');
+
+      console.log(sliderArrowsL);
+      console.log(maxSlides);
+
+      sliderArrowsL.bind('click', function(){
+        // Hide current slide
+        console.log($(screenshots[currentSlide]).hide());
+
+        if (currentSlide === 0){
+          currentSlide = maxSlides;
+        }
+        else{
+          currentSlide -= 1;
+        }
+
+        // Reveal next slide
+        console.log($(screenshots[currentSlide]).show());
+      });
+
+      sliderArrowsR.bind('click', function(){
+        // Hide current slide
+        console.log($(screenshots[currentSlide]).hide());
+
+        if (currentSlide === maxSlides){
+          currentSlide = 0;
+        }
+        else{
+          currentSlide += 1;
+        }
+
+                // Reveal next slide
+                console.log($(screenshots[currentSlide]).show());
+      });
+
+      // console.log(screenshots);
     });
   });

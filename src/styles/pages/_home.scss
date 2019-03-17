@@ -470,3 +470,115 @@ hr{
     }
 
 }
+
+// Projects container
+#block_four_container{
+    position: relative;
+    background: rgb(228, 227, 227);
+    width: 100vw;
+    height: auto;
+    padding-bottom: 3vh;
+
+    .card{
+        margin: 16px;
+        margin-top: 25px;
+        background: #fff;
+
+        p{
+            font-size: 1rem;
+            margin : 0;
+            padding-top: 15px;
+        }
+    }
+
+    .title{
+        font-size: 20pt;
+        font-weight: 300;
+    }
+
+    .tags{
+        font-size: 11pt;
+        color: rgb(114, 59, 161);
+        letter-spacing: -0.03em;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 7px 0 7px 0;
+    }
+
+    .information_box{
+        padding: 20px;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .photo_container{
+        width: 90%;
+        margin: 0 auto 0 auto;
+
+        .desc{
+            text-align: center;
+            font-size: 11pt;
+            padding: 20px;
+        }
+    }
+
+
+    #myWeather_project{
+        background-size: 100% 330px;
+        height: 330px;
+        width: 100%;
+
+        .slide{
+            height: inherit;
+            width: inherit;
+        }
+
+        #one{
+            background: url("../assets/screenshots/project1_1.jpg") center center/cover;
+        }
+
+        #two{
+            background: url("../assets/screenshots/project1_2.jpg") center center/cover;
+        }
+
+        #three{
+            background: url("../assets/screenshots/project1_3.jpg") center center/cover;
+        }
+    }
+
+    #bcca_project{
+        background: url("../assets/screenshots/project2_1.jpg") center center/cover;
+        background-size: 100% 330px;
+        height: 330px;
+        width: 100%;
+    }
+
+    #tetris_project{
+        background: url("../assets/screenshots/project3_1.jpg") no-repeat;
+        background-size: 100% 330px;
+        height: 330px;
+        width: 100%;
+    }
+
+    #tipcalc_project{
+        background: url("../assets/screenshots/project4_1.jpg") no-repeat;
+        background-size: 100% 330px;
+        height: 330px;
+        width: 100%;
+    }
+    
+    // Slider
+
+    .sliderArrows{
+        text-align: center;
+
+        .icon{
+            background: rgba(0, 0, 0, 0.068);
+            border-radius: 8px;
+            font-size: 20pt;
+        }
+    }
+}
