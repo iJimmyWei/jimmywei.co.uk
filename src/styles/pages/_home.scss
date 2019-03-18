@@ -11,6 +11,18 @@ h1{
     color: $text-color;
     padding-top: 4.5vh;
     letter-spacing: 0.1em;
+
+    // Tablets
+    @media only screen and (min-width: $tablet-min-size) {
+        font-size: 2.25em;
+        letter-spacing: 0.08em;
+    }
+
+    // Desktop
+    @media only screen and (min-width: $desktop-min-size) {
+        font-size: 3em;
+        letter-spacing: 0.06em;
+    }
 }
 
 hr{
@@ -22,583 +34,19 @@ hr{
     margin: 1.1vh auto 0 auto;
 }
 
-// 4 main blocks
-// Block 1 - Containing the hero landing "Hi" section
-#block_one_container{
-    // background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-    background-image: linear-gradient(to top, #86377b 20%, #27273c 85%);
-    overflow: hidden;
-    height: 100vh;
+p{
 
-    // Purple name highlight
-    .name{
-        color: $purple-color;
-    }
-    
-    // Star Animations
-    @function multiple-box-shadow ($n){  // n is number of stars required
-        $value: '#{random(2000)}px #{random(2000)}px #FFF';
-        @for $i from 2 through $n{
-        $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
-        }
-        @return unquote($value);
-    }
-    
-    $shadows-small:  multiple-box-shadow(700);
-    $shadows-medium: multiple-box-shadow(200);
-    $shadows-big:    multiple-box-shadow(100);
-
-    @mixin starFactory ($width, $height, $animationDur, $shadowType){
-        width: $width;
-        height: $height;
-        background: transparent;
-        box-shadow: $shadowType;
-        animation: animStar $animationDur linear infinite;
-
-        &:after{
-            content: " ";
-            position: absolute;
-            top: 2000px;
-            width: $width;
-            height: $height;
-            background: transparent;
-            box-shadow: $shadowType;
-        }
+    // Tablets
+    @media only screen and (min-width: $tablet-min-size) {
+        font-size: 1em;;
     }
 
-    #stars{
-        @include starFactory(1px, 1px, 50s, $shadows-small);
-    }
-        
-    #stars2{
-        @include starFactory(2px, 2px, 100s, $shadows-medium);
-    }
-
-    #stars3{
-        @include starFactory(3px, 3px, 150s, $shadows-big);
-    }
-
-    @keyframes animStar{
-        from {transform: translateY(0px);}
-        to {transform: translateY(-2000px);}
-    }
-
-    #main_content_container{
-        position: absolute;
-        top: 35%;
-        left: 0;
-        right: 0;
-
-        color: $white-color;
-        text-align: center;
-        font-family: 'lato',sans-serif;
-        font-weight: 300;
-        font-size: 2rem;
-
-        padding: 3vw;
-
-        // Landscape configuration for phones
-        // Default: all iPhones
-        @media screen and (orientation:landscape){
-            top: 22%;
-        }
-
-        @media only screen and (min-width: $tablet-min-size) {
-            font-size: 3rem;
-            top: 35%;
-        }
-
-        @media only screen and (min-width: $tablet-min-size) and (orientation:landscape) {
-            top: 22%;
-        }
-
-        @media only screen and (min-width: $desktop-min-size) {
-            font-size: 4rem;
-            top: 30%;
-        }
-    }
-
-    // Used to horizontally align the view my work container
-    #outer{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #view_my_work_container{
-        width: 200px;
-        height: 50px;
-        border: 3px solid $white-color;
-
-        position: absolute;
-        font-size: 1.2rem;
-        padding: 8px;
-        margin-top: 50px;
-
-        // Re-align the text to center
-        text-align: left;
-        padding-left: 30px;
-
-        @media only screen and (min-width: $tablet-min-size) {
-            width: 300px;
-            height: 70px;
-            font-size: 1.8rem;
-            padding-left: 45px;
-            padding-top: 10px;
-            margin-top: 70px;
-        }
-
-        .icon{
-            position: absolute;
-            margin-left: 5px;
-            margin-top: 2px;
-
-            @media only screen and (min-width: $tablet-min-size) {
-                font-size: 2rem;
-                margin-top: 6px;
-                margin-left: 8px;
-            }
-        }
-    }
-
-    a{
-        color: $white-color;
+    // Desktop
+    @media only screen and (min-width: $desktop-min-size) {
+        font-size: 1em;
     }
 }
 
-// Block 2 Container - Contains "About" me stuff
-#block_two_container{
-    // background: linear-gradient(90deg, #000 50%, $blue-color 50%);
-    padding-bottom: 2vh;
-    background: rgb(240, 240, 240);
-    position: relative;
-
-    .animated{
-        visibility: hidden;
-    }
-
-    .visible{
-        visibility: visible !important;
-    }
-
-    #fer_container{
-        position: relative;
-        width: 90vw;
-        color: $text-color;
-
-        margin: 0 auto 0 auto;
-
-        padding: 16px;
-
-        .card_container{
-            margin-top: 2vh;
-            background: rgba(255, 255, 255, 0);
-        }
-
-        hr{
-            border: 0;
-            width: 40vw;
-            background-color: $text-color;
-            height: 0.8vh;
-            padding: 0;
-            // margin: 0.3vh auto 0 auto;
-            margin: 0;
-            
-        }
-
-        .header{
-            color: #000;
-            width: auto;
-            height: 55px;
-            font-size: 1.8rem;
-            font-family: 'RobotoB';
-            padding: 8px;
-            text-align: center;
-        }
-
-        .description{
-            font-family: 'Lato';
-            color: #fff;
-            border-radius: 8px;
-            background: radial-gradient(ellipse at bottom, rgba(20, 6, 16, 0.767) 0%, #090A0F 100%);
-            width: 75vw;
-            padding: 16px;
-            font-size: 0.85rem;
-            margin: 0 auto 0 auto;
-            text-align: center;
-        }
-    }
-
-    .divider{
-        text-align: center;
-        color: rgb(116, 15, 126);
-    }
-
-    .or-spacer {
-        width:200px; 
-        margin: 0.5vh auto 0 auto;
-        
-        .mask { 
-          overflow:hidden; height:20px; 
-          &:after { 
-            content:''; 
-            display:block; margin:-25px auto 0;
-            width:100%; height:25px;  
-            border-radius:125px / 12px;  
-            box-shadow:0 0 8px black;
-          }
-        }
-        span {
-          $size:50px;
-          width:$size; height:$size; 
-          position:absolute; 
-          bottom:100%; margin-bottom:-$size/2;
-          left:50%; margin-left:-$size/2;
-          border-radius:100%;
-          box-shadow:0 2px 4px #999;
-          background:white;
-        }
-        span i {
-          $offset:4px;
-          position:absolute;
-          top:$offset; bottom:$offset;
-          left:$offset; right:$offset;
-          border-radius:100%;
-          border:1px dashed #aaa;
-          
-          text-align:center;
-          line-height:40px;
-          font-style:normal;
-          color:#999;
-        }
-      }
-
-      #outerWrap{
-        width: 100vw;
-        height: 25rem;
-        position: relative;
-        z-index: 0;
-    }
-
-    $main_text_container_width: 85vw;
-    $main_text_container_height: 20rem;
-    $main_text_container_left_pos: 5vw;
-    $main_text_container_top_pos: 5vh;
-
-    .dot {
-        height: 2vw;
-        width: 1.8vw;
-        background-color: rgb(179, 177, 177);
-        border-radius: 50%;
-        margin: 2vh auto 0 auto;
-        // display: absolute;
-        // float: left;
-        // margin-top: -3vh;
-      }
-
-    #main_text_container{        
-        position: absolute;
-        color: $text-color;
-        background: $white-color;
-        text-align: center;
-
-        font-size: 1.1rem;
-        width: $main_text_container_width;
-        height: $main_text_container_height;
-        left: $main_text_container_left_pos;
-        top: $main_text_container_top_pos;
-        z-index: 3;
-
-        padding-left: 20px;
-        padding-top: 16px;
-        padding-right: 20px;
-
-        font-family: 'lato';
-    }
-    
-    #black_bottom_shade{
-        position: absolute;
-        top: $main_text_container_top_pos + 2.2vh;
-        left: $main_text_container_left_pos + 6.6vw;
-        width: $main_text_container_width - 4.5vw;
-        height: $main_text_container_height;
-        background: rgb(49, 49, 49);
-        z-index: 2;
-    }
-
-    #purple_right_shade{
-        position: absolute;
-        top: $main_text_container_top_pos - 1.4vh;
-        left: $main_text_container_left_pos + 5.5vw;
-        width: $main_text_container_width - 2vw;
-        height: $main_text_container_height - 2rem;
-        background: #662D8F;
-        z-index: 1;
-    }
-      
-}
-
-// Skillsets container
-#block_three_container{
-    position: relative;
-    background: rgb(238, 236, 236);
-    width: 100vw;
-    height: auto;
-
-    padding-top: 3vh;
-    padding-bottom: 3vh;
-
-    h1{
-        margin: 0;
-        padding-top: 0;
-    }
-
-    #skillsetCircle{
-        background: url('../assets/Asset 3.svg') no-repeat;
-        width: 100px;
-        height: 100px;
-        
-        position: relative;
-        margin: 0 auto 0 auto;
-
-        z-index: 1;
-    }
-
-    #title_container{
-        height: 10vh;
-        width: 100vw;
-
-        .title{
-            width: 90vw;
-            position: absolute;
-            background: #000000;
-            font-size: 1.5rem;
-            padding-left: 47vw;
-            padding-bottom: 2vh;
-            // padding-top: 2vh;
-            color: #fff;
-            font-family: 'RobotoBl';
-            // margin-top: 3vh;
-        }
-    }
-
-    #outerWrap{
-        width: 100vw;
-        height: 20rem;
-        position: relative;
-        z-index: 0;
-    }
-
-    $main_text_container_width: 85vw;
-    $main_text_container_height: 16rem;
-    $main_text_container_left_pos:10vw;
-    $main_text_container_top_pos: 1vh;
-
-    #main_text_container{
-        position: absolute;
-        color: $text-color;
-        // background: #29A9E0;
-
-        font-size: 1.1rem;
-        width: 100vw;
-        height: $main_text_container_height;
-        padding: 16px;
-        z-index: 3;
-        
-        font-family: 'lato';
-    }
-    
-    #blue_bottom_shade{
-        position: absolute;
-        top: $main_text_container_top_pos + 2vh;
-        left: $main_text_container_left_pos - 6.6vw;
-        width: $main_text_container_width;
-        height: $main_text_container_height;
-        background: #0071BA;
-        z-index: 2;
-    }
-
-    #purple_right_shade{
-        position: absolute;
-        top: $main_text_container_top_pos + 8vh;
-        left: $main_text_container_left_pos + 7vw;
-        width: $main_text_container_width - 4vw;
-        height: $main_text_container_height - 2rem;
-        background: #662D8F;
-        z-index: 1;
-    }
-
-    .bar_container{
-        width: 90vw;
-        height: 3.5vh;
-        background: #E4E4E4;
-        display: block;
-        margin-top: 0.75vh;
-
-        .bar_label{
-            width: 25%;
-            background: #662D8F;
-            height: inherit;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-family: 'Lato';
-            float: left;
-        }
-
-        .bar_progress{
-            width: 0%;
-            height: inherit;
-            background: #461F68;
-            float: left;
-            // visibility: hidden;
-        }
-
-        .bar_percentage_label{
-            float: right;
-            width: 10%;
-            height: inherit;
-            font-size: 0.8rem;
-            padding-right: 16px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'lato';
-        }
-    }
-
-}
-
-// Projects container
-#block_four_container{
-    position: relative;
-    background: rgb(228, 227, 227);
-    width: 100vw;
-    height: auto;
-    padding-bottom: 3vh;
-
-    .card{
-        margin: 16px;
-        margin-top: 25px;
-        background: #fff;
-
-        p{
-            font-size: 1rem;
-            margin : 0;
-            padding-top: 15px;
-        }
-    }
-
-    .title{
-        font-size: 20pt;
-        font-weight: 300;
-    }
-
-    .tags{
-        font-size: 11pt;
-        color: rgb(114, 59, 161);
-        letter-spacing: -0.03em;
-        font-weight: bold;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-        padding: 7px 0 7px 0;
-    }
-
-    .information_box{
-        padding: 20px;
-    }
-
-    .container{
-        width: 100%;
-        max-width: 1200px;
-    }
-
-    .photo_container{
-        width: 90%;
-        margin: 0 auto 0 auto;
-
-        .desc{
-            text-align: center;
-            font-size: 11pt;
-            padding: 20px;
-        }
-    }
-
-    .slide{
-        height: inherit;
-        width: inherit;
-    }
-
-    #myWeather_project{
-        background-size: 100% 330px;
-        height: 330px;
-        width: 100%;
-
-        #one{
-            background: url("../assets/screenshots/project1_1.jpg") center center/cover;
-        }
-
-        #two{
-            background: url("../assets/screenshots/project1_2.jpg") center center/cover;
-        }
-
-        #three{
-            background: url("../assets/screenshots/project1_3.jpg") center center/cover;
-        }
-    }
-
-    #bcca_project{
-        background-size: 100% 330px;
-        height: 330px;
-        width: 100%;
-
-        #one{
-            background: url("../assets/screenshots/project2_1.jpg") center center/cover;
-        }
-
-        #two{
-            background: url("../assets/screenshots/project2_2.jpg") center center/cover;
-        }
-
-        #three{
-            background: url("../assets/screenshots/project2_3.jpg") center center/cover;
-        }
-    }
-
-    #tetris_project{
-        background-size: 100% 330px;
-        height: 330px;
-        width: 100%;
-
-        #one{
-            background: url("../assets/screenshots/project3_1.jpg") center center/cover;
-        }
-
-        #two{
-            background: url("../assets/screenshots/project3_2.jpg") center center/cover;
-        }
-    }
-
-    #tipcalc_project{
-        background: url("../assets/screenshots/project4_1.jpg") no-repeat;
-        background-size: 100% 330px;
-        height: 330px;
-        width: 100%;
-    }
-    
-    // Slider
-    .sliderArrows{
-        text-align: center;
-        padding-top: 16px;
-
-        .icon{
-            background: rgba(0, 0, 0, 0.068);
-            border-radius: 8px;
-            font-size: 20pt;
-        }
-    }
-}
 
 // Contact Us container
 #block_five_container{
@@ -643,6 +91,11 @@ hr{
         color: #fff;
     }
 
+    ::placeholder{
+        color: rgba(255, 255, 255, 0.609);
+        opacity: 1;
+    }
+
     textarea{
         height: 100px;
     }
@@ -659,3 +112,19 @@ hr{
     }
 }
 
+#footer{
+    position: relative;
+    background: #1B242F;
+    width: 100vw;
+    height: auto;
+    padding: 16px;
+    text-align: center;
+    color: #8F9AA7;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Lato';
+
+    .highlight{
+        color: #E31B6D;
+    }
+}

@@ -1,0 +1,186 @@
+// Projects container
+#projects{
+    position: relative;
+    background: rgb(228, 227, 227);
+    width: 100vw;
+    height: auto;
+    padding-bottom: 3vh;
+
+    .card{
+        margin: 16px;
+        margin-top: 25px;
+        background: #fff;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            width: 80vw;
+            margin: 45px auto 16px auto;
+        }
+
+        p{
+            font-size: 1rem;
+            margin : 0;
+            padding-top: 15px;
+        }
+    }
+
+    .title{
+        font-size: 20pt;
+        font-weight: 300;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            font-size: 2em;
+        }
+    }
+
+    .tags{
+        font-size: 11pt;
+        color: rgb(114, 59, 161);
+        letter-spacing: -0.05em;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 7px 0 7px 0;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            font-size: 1em;
+        }
+    }
+
+    .information_box{
+        padding: 20px;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 30px;
+        }
+    }
+
+    .container{
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .photo_container{
+        width: 90%;
+        margin: 0 auto 0 auto;
+
+        .desc{
+            text-align: center;
+            font-size: 11pt;
+            padding: 20px;
+
+            // Tablets
+            @media only screen and (min-width: $tablet-min-size) {
+                font-size: 1em;
+            }
+        }
+    }
+
+    .slide{
+        height: inherit;
+        width: inherit;
+    }
+
+    @mixin tablet_configuration(){ 
+        background-size: 100% 100%;
+        height: 580px;
+        width: 540px;
+    }
+
+
+    #myWeather_project{
+        height: 330px;
+        width: 310px;
+        margin: 0 auto 0 auto;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            @include tablet_configuration();
+        }
+
+        #one{
+            background: url("../assets/screenshots/project1_1.jpg") center center/cover;
+        }
+
+        #two{
+            background: url("../assets/screenshots/project1_2.jpg") center center/cover;
+        }
+
+        #three{
+            background: url("../assets/screenshots/project1_3.jpg") center center/cover;
+        }
+    }
+
+    #bcca_project{
+        background-size: 100% 330px;
+        height: 330px;
+        width: 100%;
+        margin: 0 auto 0 auto;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            @include tablet_configuration();
+        }
+
+        #one{
+            background: url("../assets/screenshots/project2_1.jpg") center center/cover;
+        }
+
+        #two{
+            background: url("../assets/screenshots/project2_2.jpg") center center/cover;
+        }
+
+        #three{
+            background: url("../assets/screenshots/project2_3.jpg") center center/cover;
+        }
+    }
+
+    #tetris_project{
+        background-size: 100% 330px;
+        height: 330px;
+        width: 100%;
+        margin: 0 auto 0 auto;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            @include tablet_configuration();
+        }        
+
+        #one{
+            background: url("../assets/screenshots/project3_1.jpg") center center/cover;
+        }
+
+        #two{
+            background: url("../assets/screenshots/project3_2.jpg") center center/cover;
+        }
+    }
+
+    #tipcalc_project{
+        background: url("../assets/screenshots/project4_1.jpg") no-repeat;
+        background-size: 100% 330px;
+        height: 330px;
+        width: 100%;
+        margin: 0 auto 0 auto;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            @include tablet_configuration();
+        }        
+    }
+    
+    // Slider
+    .sliderArrows{
+        text-align: center;
+        padding-top: 16px;
+
+        .icon{
+            background: rgba(0, 0, 0, 0.068);
+            border-radius: 8px;
+            font-size: 20pt;
+        }
+    }
+}

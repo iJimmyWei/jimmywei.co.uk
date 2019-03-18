@@ -4,6 +4,10 @@ var $;
 $ = require('jquery');
 
 $(document).ready(function() {
+    function getMonitorType(){
+
+    }
+
     // Check if element is scrolled into view
     function isScrolledIntoView(elem) {
       var docViewTop = $(window).scrollTop();
@@ -17,7 +21,7 @@ $(document).ready(function() {
 
     // If element is scrolled into view, fade it in
     $(window).scroll(function() {
-      $('.animated', '#block_two_container').each(function() {
+      $('.animated', '#about').each(function() {
         if (isScrolledIntoView(this) === true) {
             if (this.hasAnimated === undefined){
                 $(this).addClass('fadeInLeft visible');
@@ -29,7 +33,7 @@ $(document).ready(function() {
 
     // Animate the progress bars
     $(window).scroll(function() {
-      $('.bar_container', '#block_three_container').each(function() {
+      $('.bar_container', '#skillsets').each(function() {
         let percentage = ($(this).find('.bar_percentage_label').text()).replace('%', '');
         let progressBar = $(this).find('.bar_progress');
 

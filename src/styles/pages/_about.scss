@@ -1,0 +1,211 @@
+// About Container - Contains "About" me stuff
+#about{
+    background: rgb(240, 240, 240);
+    position: relative;
+    padding-bottom: 2vh;
+
+    // Tablets
+    @media only screen and (min-width: $tablet-min-size) {
+        padding-bottom: 10vh;
+    }
+
+    .animated{
+        visibility: hidden;
+    }
+
+    .visible{
+        visibility: visible !important;
+    }
+
+    #wrapper{
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            width: 100vw;
+            height: auto;
+        }
+    }
+
+    #fer_container{
+        position: relative;
+        width: 90vw;
+        color: $text-color;
+
+        margin: 0 auto 0 auto;
+        padding: 16px;
+
+         // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            width: 100vw;
+            display: flex;
+            padding: 0px;
+        }
+
+        // Tablets Landscape
+        @media only screen and (min-width: $tablet-min-size) and (orientation:landscape) {
+        }
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+        }
+
+        .card_container{
+            margin-top: 2vh;
+            background: rgba(255, 255, 255, 0);
+        }
+
+        hr{
+            border: 0;
+            width: 40vw;
+            background-color: $text-color;
+            height: 0.8vh;
+            padding: 0;
+            // margin: 0.3vh auto 0 auto;
+            margin: 0;
+        }
+
+        .header{
+            color: #000;
+            width: auto;
+            height: 55px;
+            font-size: 1.8rem;
+            font-family: 'RobotoB';
+            padding: 8px;
+            text-align: center;
+        }
+
+        .description{
+            font-family: 'Lato';
+            color: #000000;
+            border-radius: 8px;
+            // background: radial-gradient(ellipse at bottom, rgba(20, 6, 16, 0.767) 0%, #090A0F 100%);
+            width: 75vw;
+            padding: 16px;
+            font-size: 12pt;
+            margin: 0 auto 0 auto;
+            text-align: center;
+
+            // Tablets
+            @media only screen and (min-width: $tablet-min-size) {
+                width: 33vw;
+            }
+
+        }
+    }
+
+    .divider{
+        text-align: center;
+        color: rgb(116, 15, 126);
+    }
+
+    .or-spacer {
+        width:200px; 
+        margin: 0.5vh auto 0 auto;
+        
+        .mask { 
+          overflow:hidden; height:20px; 
+          &:after { 
+            content:''; 
+            display:block; margin:-25px auto 0;
+            width:100%; height:25px;  
+            border-radius:125px / 12px;  
+            box-shadow:0 0 8px black;
+          }
+        }
+        span {
+          $size:50px;
+          width:$size; height:$size; 
+          position:absolute; 
+          bottom:100%; margin-bottom:-$size/2;
+          left:50%; margin-left:-$size/2;
+          border-radius:100%;
+          box-shadow:0 2px 4px #999;
+          background:white;
+        }
+        span i {
+          $offset:4px;
+          position:absolute;
+          top:$offset; bottom:$offset;
+          left:$offset; right:$offset;
+          border-radius:100%;
+          border:1px dashed #aaa;
+          
+          text-align:center;
+          line-height:40px;
+          font-style:normal;
+          color:#999;
+        }
+      }
+
+    // WHO AM I CONTAINER
+    #whoAmIWrapper{
+        width: 100vw;
+        height: 25rem;
+        position: relative;
+        z-index: 0;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            // height: auto;
+        }
+    }
+
+    $main_text_container_width: 85vw;
+    $main_text_container_height: 20rem;
+    $main_text_container_left_pos: 5vw;
+    $main_text_container_top_pos: 5vh;
+
+    @media only screen and (min-width: $tablet-min-size) {
+        $main_text_container_height: 22rem;
+    }
+
+    #main_text_container{        
+        position: absolute;
+        color: $text-color;
+        background: $white-color;
+        text-align: center;
+
+        width: $main_text_container_width;
+        height: $main_text_container_height;
+        left: $main_text_container_left_pos;
+        top: $main_text_container_top_pos;
+        z-index: 3;
+
+        padding-left: 20px;
+        padding-top: 16px;
+        padding-right: 20px;
+
+        font-family: 'lato';
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            padding: 30px;
+            
+            h1{
+                font-size: 1.5em;
+                padding-top: 10px;
+            }
+
+
+        }
+    } 
+        
+    #black_bottom_shade{
+        position: absolute;
+        top: $main_text_container_top_pos + 2.2vh;
+        left: $main_text_container_left_pos + 6.6vw;
+        width: $main_text_container_width - 4.5vw;
+        height: $main_text_container_height;
+        background: rgb(49, 49, 49);
+        z-index: 2;
+    }
+
+    #purple_right_shade{
+        position: absolute;
+        top: $main_text_container_top_pos - 1.4vh;
+        left: $main_text_container_left_pos + 5.5vw;
+        width: $main_text_container_width - 2vw;
+        height: $main_text_container_height - 2rem;
+        background: #662D8F;
+        z-index: 1;
+    }
+}

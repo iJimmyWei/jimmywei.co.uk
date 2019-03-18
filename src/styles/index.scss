@@ -28,7 +28,11 @@
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/home',
+  'pages/introduction',
+  'pages/about',
+  'pages/skillsets',
+  'pages/projects';
 
 // 7. Themes
 @import
