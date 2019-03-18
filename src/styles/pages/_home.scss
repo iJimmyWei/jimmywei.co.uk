@@ -588,7 +588,6 @@ hr{
     }
     
     // Slider
-
     .sliderArrows{
         text-align: center;
         padding-top: 16px;
@@ -600,3 +599,63 @@ hr{
         }
     }
 }
+
+// Contact Us container
+#block_five_container{
+    position: relative;
+    background: rgb(5, 69, 104);
+    width: 100vw;
+    height: auto;
+    padding-bottom: 10vh;
+
+    h1{
+        color: #fff;
+    }
+
+    hr{
+        background-color: #fff;
+    }
+
+    h2{
+        font-size: 1rem;
+        color: rgb(115, 239, 255);
+        text-align: center;
+    }
+
+    #contact_form{
+        width: 90%;
+        margin: 30px auto 0 auto;
+    }
+
+    input, textarea{
+        text-rendering: auto;
+        text-align: start;
+        padding: 10px 15px;
+        border: 0;
+        outline: none;
+        width: 100%;
+        font-size: 12pt;
+        margin-bottom: 3px;
+        display: block;
+        box-sizing: border-box;
+        background: rgb(4, 51, 77);
+        font: 400 13.3333px Arial;
+        color: #fff;
+    }
+
+    textarea{
+        height: 100px;
+    }
+
+    .submit_button{
+        padding: 10px;
+        font-size: 12pt;
+        border: 2px solid white;
+        width: 35%;
+        text-align: center;
+        cursor: pointer;
+        float: right;
+        margin-top: 10px;
+    }
+}
+
