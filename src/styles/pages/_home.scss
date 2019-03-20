@@ -9,29 +9,37 @@ h1{
     font-weight: normal;
     text-align: center;
     color: $text-color;
-    padding-top: 4.5vh;
+    padding-top: 3.5vh;
     letter-spacing: 0.1em;
+    padding-bottom: 1.5vh;
 
     // Tablets
     @media only screen and (min-width: $tablet-min-size) {
-        font-size: 2.25em;
+        font-size: 2em;
         letter-spacing: 0.08em;
     }
 
     // Desktop
     @media only screen and (min-width: $desktop-min-size) {
-        font-size: 3em;
+        font-size: 2.5em;
         letter-spacing: 0.06em;
     }
 }
 
 hr{
     border: 0;
-    width: 40vw;
+    width: 35vw;
     background-color: $text-color;
     height: 0.8vh;
     padding: 0;
     margin: 1.1vh auto 0 auto;
+
+    // Tablets
+    @media only screen and (min-width: $tablet-min-size) {
+        height: 0.65vh;
+
+        width: 20vw;
+    }
 }
 
 p{
@@ -89,6 +97,12 @@ p{
         background: rgb(4, 51, 77);
         font: 400 13.3333px Arial;
         color: #fff;
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            font-size: 1em;
+            padding: 20px 25px;
+        }
     }
 
     ::placeholder{

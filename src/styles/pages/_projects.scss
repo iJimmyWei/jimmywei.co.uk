@@ -2,9 +2,18 @@
 #projects{
     position: relative;
     background: rgb(228, 227, 227);
-    width: 100vw;
-    height: auto;
-    padding-bottom: 3vh;
+
+    .wrapper{
+        padding-bottom: 3vh;
+        width: 100vw;
+        height: auto;
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            display: flex;
+            flex-wrap: wrap;
+        }  
+    }
 
     .card{
         margin: 16px;
@@ -16,6 +25,11 @@
             width: 80vw;
             margin: 45px auto 16px auto;
         }
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            width: 35vw;
+        }  
 
         p{
             font-size: 1rem;
@@ -30,7 +44,7 @@
 
         // Tablets
         @media only screen and (min-width: $tablet-min-size) {
-            font-size: 2em;
+            font-size: 1.5em;
         }
     }
 
@@ -181,6 +195,7 @@
             background: rgba(0, 0, 0, 0.068);
             border-radius: 8px;
             font-size: 20pt;
+            cursor: pointer;
         }
     }
 }

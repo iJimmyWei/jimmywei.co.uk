@@ -23,6 +23,11 @@
             width: 100vw;
             height: auto;
         }
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            width: 50vw;
+        }  
     }
 
     #fer_container{
@@ -33,24 +38,22 @@
         margin: 0 auto 0 auto;
         padding: 16px;
 
-         // Tablets
+         // Tablets and Desktops above
         @media only screen and (min-width: $tablet-min-size) {
             width: 100vw;
             display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 0px;
-        }
-
-        // Tablets Landscape
-        @media only screen and (min-width: $tablet-min-size) and (orientation:landscape) {
-        }
-
-        // Desktop
-        @media only screen and (min-width: $desktop-min-size) {
         }
 
         .card_container{
             margin-top: 2vh;
             background: rgba(255, 255, 255, 0);
+
+            @media only screen and (min-width: $desktop-min-size) {
+                width: 22%;
+            }
         }
 
         hr{
@@ -80,15 +83,20 @@
             // background: radial-gradient(ellipse at bottom, rgba(20, 6, 16, 0.767) 0%, #090A0F 100%);
             width: 75vw;
             padding: 16px;
-            font-size: 12pt;
+            font-size: 0.8em;
             margin: 0 auto 0 auto;
             text-align: center;
 
             // Tablets
             @media only screen and (min-width: $tablet-min-size) {
-                width: 33vw;
+                width: 100%;
             }
 
+            // Desktop
+            @media only screen and (min-width: $desktop-min-size) {
+                font-size: 1em;
+                // padding: 16px 100px 16px 100px;
+            }
         }
     }
 
@@ -138,73 +146,106 @@
 
     // WHO AM I CONTAINER
     #whoAmIWrapper{
-        width: 100vw;
-        height: 25rem;
+        width: inherit;
+        height: 30em;
         position: relative;
         z-index: 0;
+    }
+
+    $main_text_container_width: 90vw;
+    $main_text_container_height: 35rem;
+    $main_text_container_left_pos: 4vw;
+    $main_text_container_top_pos: 5vh;
+
+    @mixin height_adjustments($w, $h, $t, $l){
+        width: $main_text_container_width + $w;
+        height: $main_text_container_height + $h;
+        top: $main_text_container_top_pos + $t;
+        left: $main_text_container_left_pos + $l;
+    }
+
+    #photo{
+        background: url('../assets/photo.png') center no-repeat;
+        background-size: 200px 175px;
+        width: 130px;
+        height: 125px;
+        margin: 0 auto 0 auto;
+        border-radius: 80%;
+        padding: 16px;
 
         // Tablets
         @media only screen and (min-width: $tablet-min-size) {
-            // height: auto;
+            background-size: 245px 195px;
+            width: 200px;
+            height: 195px;
         }
-    }
-
-    $main_text_container_width: 85vw;
-    $main_text_container_height: 20rem;
-    $main_text_container_left_pos: 5vw;
-    $main_text_container_top_pos: 5vh;
-
-    @media only screen and (min-width: $tablet-min-size) {
-        $main_text_container_height: 22rem;
     }
 
     #main_text_container{        
         position: absolute;
         color: $text-color;
         background: $white-color;
+        padding: 40px 20px 0px 20px;
+        font-family: 'lato';
+        font-size: 1em;
         text-align: center;
 
-        width: $main_text_container_width;
-        height: $main_text_container_height;
-        left: $main_text_container_left_pos;
-        top: $main_text_container_top_pos;
-        z-index: 3;
-
-        padding-left: 20px;
-        padding-top: 16px;
-        padding-right: 20px;
-
-        font-family: 'lato';
+        @include height_adjustments(0, 0, 0, 0);
 
         // Tablets
         @media only screen and (min-width: $tablet-min-size) {
+            @include height_adjustments(-20vw, -4rem, 0, 12vw);
+
             padding: 30px;
             
             h1{
                 font-size: 1.5em;
                 padding-top: 10px;
             }
-
-
         }
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            display: block;
+
+            @include height_adjustments(-50vw, -4rem, 0, 3vw);
+        }        
+
+        z-index: 3;
     } 
         
     #black_bottom_shade{
         position: absolute;
-        top: $main_text_container_top_pos + 2.2vh;
-        left: $main_text_container_left_pos + 6.6vw;
-        width: $main_text_container_width - 4.5vw;
-        height: $main_text_container_height;
+        @include height_adjustments(-4.5vw, 0, 2.2vh, 6.6vw);
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            @include height_adjustments(-20vw, -4rem, 1.5vh, 13.6vw);
+        }
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            @include height_adjustments(-50vw, -4rem, 1.3vh, 4.8vw);
+        }  
+
         background: rgb(49, 49, 49);
         z-index: 2;
     }
 
     #purple_right_shade{
         position: absolute;
-        top: $main_text_container_top_pos - 1.4vh;
-        left: $main_text_container_left_pos + 5.5vw;
-        width: $main_text_container_width - 2vw;
-        height: $main_text_container_height - 2rem;
+        @include height_adjustments(-2vw, -2rem, -1.4vh, 5.5vw);
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            @include height_adjustments(-20vw, -4rem, -1.3vh, 15vw);
+        }
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            @include height_adjustments(-50vw, -4rem, -1.4vh, 6vw);
+        }  
+
         background: #662D8F;
         z-index: 1;
     }
