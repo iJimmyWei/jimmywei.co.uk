@@ -55,10 +55,13 @@ $dark-grey: rgb(68, 68, 68) !default;
 /// @type Length
 $max-width: 1180px !default;
 
+$lg_phones_min_height: 700px;
 
 $tablet-min-size: 768px;
 
 $desktop-min-size: 1024px;
+
+$lg-desktop-min-size: 1200px;
 
 
 /// Breakpoints map

@@ -6,8 +6,13 @@
 
     // Tablets
     @media only screen and (min-width: $tablet-min-size) {
-        padding-bottom: 10vh;
+        padding-bottom: 4vh;
     }
+
+    // Desktop
+    @media only screen and (min-width: $desktop-min-size) {
+        padding-bottom: 10vh;
+    }    
 
     .animated{
         visibility: hidden;
@@ -30,6 +35,34 @@
         }  
     }
 
+    .icon_wrapper{
+        text-align: center;
+        height: 40px;
+    }
+
+    .lightning_bolt_icon{
+        background: url('../assets/flash.svg') no-repeat;
+        padding: 20px;
+        position: absolute;
+        margin-left: -20px;
+    }
+
+    .leaf_icon{
+        background: url('../assets/leaf.svg') no-repeat;
+        background-size: 40px 50px;
+        padding: 30px;
+        position: absolute;
+        margin-left: -20px;
+    }
+
+    .responsive_design_icon{
+        background: url('../assets/responsive-design-symbol.svg') no-repeat;
+        background-size: 45px 50px;
+        padding: 25px;
+        position: absolute;
+        margin-left: -20px;
+    }
+
     #fer_container{
         position: relative;
         width: 90vw;
@@ -48,11 +81,19 @@
         }
 
         .card_container{
-            margin-top: 2vh;
+            margin-top: 5vh;
             background: rgba(255, 255, 255, 0);
 
+            @media only screen and (min-width: $tablet-min-size) {
+                width: 30%;
+            }
+
             @media only screen and (min-width: $desktop-min-size) {
-                width: 22%;
+                width: 27%;
+            }
+
+            @media only screen and (min-width: $lg-desktop-min-size){
+                width: 25%;
             }
         }
 
@@ -80,12 +121,11 @@
             font-family: 'Lato';
             color: #000000;
             border-radius: 8px;
-            // background: radial-gradient(ellipse at bottom, rgba(20, 6, 16, 0.767) 0%, #090A0F 100%);
-            width: 75vw;
             padding: 16px;
             font-size: 0.8em;
             margin: 0 auto 0 auto;
             text-align: center;
+            width: 350px;
 
             // Tablets
             @media only screen and (min-width: $tablet-min-size) {
@@ -95,7 +135,8 @@
             // Desktop
             @media only screen and (min-width: $desktop-min-size) {
                 font-size: 1em;
-                // padding: 16px 100px 16px 100px;
+                height: 120px;
+                width: 290px;
             }
         }
     }
@@ -149,19 +190,24 @@
         width: inherit;
         height: 30em;
         position: relative;
-        z-index: 0;
+
+        // Tablets
+        @media only screen and (min-width: $tablet-min-size) {
+            height: 28em;
+            padding-top: 65px;
+        }
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            padding-top: 0;
+        }
     }
 
-    $main_text_container_width: 90vw;
-    $main_text_container_height: 35rem;
-    $main_text_container_left_pos: 4vw;
-    $main_text_container_top_pos: 5vh;
-
     @mixin height_adjustments($w, $h, $t, $l){
-        width: $main_text_container_width + $w;
-        height: $main_text_container_height + $h;
-        top: $main_text_container_top_pos + $t;
-        left: $main_text_container_left_pos + $l;
+        width: $w;
+        height: $h;
+        top: $t;
+        left: $l;
     }
 
     #photo{
@@ -169,84 +215,49 @@
         background-size: 200px 175px;
         width: 130px;
         height: 125px;
-        margin: 0 auto 0 auto;
+        margin: 20px auto 0 auto;
         border-radius: 80%;
         padding: 16px;
 
         // Tablets
         @media only screen and (min-width: $tablet-min-size) {
-            background-size: 245px 195px;
-            width: 200px;
-            height: 195px;
+            background-size: 200px 160px;
+            width: 150px;
+            height: 150px;
         }
     }
 
     #main_text_container{        
-        position: absolute;
         color: $text-color;
         background: $white-color;
-        padding: 40px 20px 0px 20px;
+        padding: 20px 35px 20px 35px;
         font-family: 'lato';
-        font-size: 1em;
+        font-size: 0.8em;
         text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
-        @include height_adjustments(0, 0, 0, 0);
-
+        @include height_adjustments(90%, auto, 5vh, 5%);
+        margin: 0 auto 0 auto;
+        
         // Tablets
         @media only screen and (min-width: $tablet-min-size) {
-            @include height_adjustments(-20vw, -4rem, 0, 12vw);
-
-            padding: 30px;
-            
+            @include height_adjustments(500px, auto, 5vh, 0%);
             h1{
                 font-size: 1.5em;
-                padding-top: 10px;
             }
         }
 
         // Desktop
         @media only screen and (min-width: $desktop-min-size) {
-            display: block;
+            @include height_adjustments(80%, auto, 5vh, 15%);
 
-            @include height_adjustments(-50vw, -4rem, 0, 3vw);
-        }        
+            padding: 40px 30px 20px 30px;
 
-        z-index: 3;
+            left: -10px;
+
+            max-width: 500px;
+            float: right;
+            position: relative;
+        }
     } 
-        
-    #black_bottom_shade{
-        position: absolute;
-        @include height_adjustments(-4.5vw, 0, 2.2vh, 6.6vw);
-
-        // Tablets
-        @media only screen and (min-width: $tablet-min-size) {
-            @include height_adjustments(-20vw, -4rem, 1.5vh, 13.6vw);
-        }
-
-        // Desktop
-        @media only screen and (min-width: $desktop-min-size) {
-            @include height_adjustments(-50vw, -4rem, 1.3vh, 4.8vw);
-        }  
-
-        background: rgb(49, 49, 49);
-        z-index: 2;
-    }
-
-    #purple_right_shade{
-        position: absolute;
-        @include height_adjustments(-2vw, -2rem, -1.4vh, 5.5vw);
-
-        // Tablets
-        @media only screen and (min-width: $tablet-min-size) {
-            @include height_adjustments(-20vw, -4rem, -1.3vh, 15vw);
-        }
-
-        // Desktop
-        @media only screen and (min-width: $desktop-min-size) {
-            @include height_adjustments(-50vw, -4rem, -1.4vh, 6vw);
-        }  
-
-        background: #662D8F;
-        z-index: 1;
-    }
 }

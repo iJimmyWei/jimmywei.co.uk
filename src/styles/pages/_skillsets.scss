@@ -7,14 +7,16 @@
 
     padding-top: 3vh;
     padding-bottom: 3vh;
+    
 
     // Desktop
     @media only screen and (min-width: $desktop-min-size) {
-        width: 50vw;
-        margin-top: -660px;
+        width: 40vw;
+        margin-top: -640px;
         margin-left: 50vw;
         background: rgb(240, 240, 240);
-        padding-bottom: 12vh;
+        padding-bottom: 100px;
+        padding-top: 50px;
     }  
 
     h1{
@@ -27,15 +29,21 @@
         }  
     }
 
+    #circleContainer{
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            width: 500px;
+        }  
+    }
+
     #skillsetCircle{
         background: url('../assets/Asset 3.svg') no-repeat;
         width: 100px;
         height: 100px;
         
         position: relative;
+        
         margin: 0 auto 0 auto;
-
-        z-index: 1;
     }
 
     #main_text_container{
@@ -50,7 +58,8 @@
 
         // Desktop
         @media only screen and (min-width: $desktop-min-size) {
-            width: 45vw;
+            width: 500px;
+            float: left;
         }  
 
     }
@@ -73,7 +82,8 @@
         @media only screen and (min-width: $desktop-min-size) {
             width: 38vw;
             height: 30px;
-        }  
+            max-width: 409px;
+        }
 
         .bar_label{
             width: 25%;
@@ -118,3 +128,12 @@
         }
     }
 }
+
+.clearfix::after { 
+    content: " ";
+    display: block; 
+    height: 0; 
+    clear: both;
+    padding-bottom: 70px;
+    background: rgb(238, 236, 236);
+ }

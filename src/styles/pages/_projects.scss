@@ -12,6 +12,13 @@
         @media only screen and (min-width: $desktop-min-size) {
             display: flex;
             flex-wrap: wrap;
+            max-width: 1300px;
+            margin: 0 auto 0 auto;
+        }  
+
+        // LG Desktop
+        @media only screen and (min-width: $lg-desktop-min-size) {
+            max-width: 1200px;
         }  
     }
 
@@ -28,7 +35,7 @@
 
         // Desktop
         @media only screen and (min-width: $desktop-min-size) {
-            width: 35vw;
+            width: 580px;
         }  
 
         p{
@@ -82,6 +89,10 @@
         width: 90%;
         margin: 0 auto 0 auto;
 
+        @media only screen and (min-width: $desktop-min-size){
+            width: 100%;
+        }
+
         .desc{
             text-align: center;
             font-size: 11pt;
@@ -105,6 +116,11 @@
         width: 540px;
     }
 
+    @mixin desktop_configuration(){ 
+        background-size: 100% 100%;
+        height: 380px;
+        width: 350px;
+    }
 
     #myWeather_project{
         height: 330px;
@@ -115,6 +131,11 @@
         @media only screen and (min-width: $tablet-min-size) {
             @include tablet_configuration();
         }
+
+        // // Desktop
+        // @media only screen and (min-width: $tablet-min-size) {
+        //     @include desktop_configuration();
+        // }
 
         #one{
             background: url("../assets/screenshots/project1_1.jpg") center center/cover;
@@ -130,7 +151,6 @@
     }
 
     #bcca_project{
-        background-size: 100% 330px;
         height: 330px;
         width: 100%;
         margin: 0 auto 0 auto;
@@ -154,7 +174,6 @@
     }
 
     #tetris_project{
-        background-size: 100% 330px;
         height: 330px;
         width: 100%;
         margin: 0 auto 0 auto;
