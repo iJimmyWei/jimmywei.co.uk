@@ -28,5 +28,9 @@ html {
 a {
   color: $brand-color;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
+a:hover{
+  color: rgb(235, 71, 186);
+}

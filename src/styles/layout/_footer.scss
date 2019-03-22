@@ -14,7 +14,31 @@
     -webkit-font-smoothing: antialiased;
     font-family: 'Lato';
 
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+
     .highlight{
         color: #E31B6D;
     }
+}
+
+#social_media_wrapper{
+    background: #fff;
+    border-radius: 40px;
+    margin: 16px auto 0 auto;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#github{
+    background: url('../assets/github.svg') no-repeat;
+    padding: 20px;
+    opacity: 0.9;
+}
+
+#github:hover{
+    opacity: 1.0;
 }
