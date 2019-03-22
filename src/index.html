@@ -15,7 +15,7 @@
           <div class="animated bounce">I'm a front-end web developer.</div>
 
           <div id="outer">
-            <a href="#" id="view_my_work_button">
+            <a href="#about" id="view_my_work_button">
               View my work <i class="material-icons icon">arrow_forward</i>
             </a>
             
@@ -26,8 +26,20 @@
       <div id="stars3"></div>
     </section> 
 
+    <!-- NAVIGATION -->
+    <section id="nav-wrapper">
+      <nav id="navigation">
+        <div class="wrapper">
+          <a href="#introduction" id="navHome">HOME</a>
+          <a href="#about" id="navAbout">ABOUT</a>
+          <a href="#projects" id="navProjects">PROJECTS</a>
+          <a href="#contact" id="navContact">CONTACT</a>
+        </div>
+      </nav>
+    </section>
+
     <!-- ABOUT -->
-    <section id="about">
+    <section class="anchor" id="about">
         <h1>ABOUT
             <hr>
         </h1>
@@ -182,7 +194,7 @@
               <i class="material-icons left icon">keyboard_arrow_left</i>
               <i class="material-icons right icon">keyboard_arrow_right</i>
             </div>
-            <div class="desc">Visit Live Website | Github Code</div>
+            <div class="desc"><a href="http://www.jimmywei.co.uk/myWeather" target="_blank">Visit Live Website</a> | Github Code</div>
           </div>
         </div>
 
@@ -201,7 +213,7 @@
               <i class="material-icons left icon">keyboard_arrow_left</i>
               <i class="material-icons right icon">keyboard_arrow_right</i>
             </div>
-            <div class="desc">Visit Live Website | Github Code</div>
+            <div class="desc"><a href="http://www.jimmywei.co.uk/tetris" target="_blank">Visit Live Website</a> | Github Code</div>
           </div>
         </div>
 
@@ -213,7 +225,7 @@
           </div>
           <div class="photo_container">
             <div id="tipcalc_project"></div>
-            <div class="desc">Visit Live Website | Github Code</div>
+            <div class="desc"><a href="http://www.jimmywei.co.uk/tipCalculator" target="_blank">Visit Live Website</a> | Github Code</div>
           </div>
         </div>
 
@@ -234,7 +246,7 @@
               <i class="material-icons left icon">keyboard_arrow_left</i>
               <i class="material-icons right icon">keyboard_arrow_right</i>
             </div>
-            <div class="desc">Visit Live Website</div>
+            <div class="desc"><a href="http://www.blackpoolcca.com" target="_blank">Visit Live Website</a></div>
           </div>
         </div>
       </div>
@@ -242,7 +254,7 @@
     </section>
 
     <!-- CONTACT -->
-    <div id="block_five_container">
+    <section id="contact">
       <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%" style="margin-top:-1px;" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
         <path d="M0 0 L50 100 L100 0 Z" fill="rgb(228, 227, 227)" stroke="rgb(228, 227, 227)"></path>
       </svg>
@@ -251,13 +263,15 @@
       </h1>
       <h2>Have a question or want to contact me?</h2>
       <form id="contact_form">
-        <input placeholder="Name" type="text" name="name" required>
-        <input placeholder="Enter email" type="email" name="email" required>
-        <textarea placeholder="Your message" type="text" name="message" required></textarea>
+        <input placeholder="Name" type="text" id="name" required>
+        <input placeholder="Enter email" type="email" id="email" required>
+        <textarea placeholder="Your message" type="text" id="message" required></textarea>
+
+        <div id="callback_box" class="callback_box">Success! Your message has been sent. I will try to reply within 12 hours!</div>
 
         <input type="button" class="submit_button" type="submit" id="submit" value="SUBMIT">
       </form>
-    </div>
+    </section>
 
     <!-- FOOTER -->
     <footer id="footer">
@@ -265,4 +279,5 @@
     </footer>
 
 </body>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 </html>

@@ -110,6 +110,9 @@
 
         margin-top: 20px;
 
+        -webkit-transition: background-color .8s ease-in-out;
+        transition:         background-color .8s ease-in-out;
+
         @media only screen and (min-width: $tablet-min-size) {
             width: 300px;
             height: 70px;
@@ -129,10 +132,26 @@
                 margin-top: 6px;
                 margin-left: 8px;
             }
+
+            -webkit-transition: -webkit-transform .4s ease-in-out;
+            transition:         transform .4s ease-in-out;
         }
+    }
+
+    .rotated { 
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
     }
 
     a{
         color: $white-color;
+    }
+
+    a:hover{
+        text-decoration: none;
+        background: #4e9ae2;
     }
 }

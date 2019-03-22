@@ -2,6 +2,10 @@
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
 
+html{
+    scroll-behavior: smooth;
+}
+
 h1{
     font-family: 'lato';
     font-size: 2rem;
@@ -9,9 +13,9 @@ h1{
     font-weight: normal;
     text-align: center;
     color: $text-color;
-    padding-top: 3.5vh;
+    // padding-top: 1.5vh;
     letter-spacing: 0.1em;
-    padding-bottom: 1.5vh;
+    padding-bottom: 2.5vh;
 
     // Tablets
     @media only screen and (min-width: $tablet-min-size) {
@@ -55,19 +59,13 @@ p{
     }
 }
 
-#footer{
-    position: relative;
-    background: #1B242F;
-    width: 100vw;
-    height: auto;
-    padding: 16px;
-    text-align: center;
-    color: #8F9AA7;
-    font-size: 10pt;
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Lato';
+h1:before {
+    content:"";
+    display:block;
+    height:60px;
+    margin-top: -10px;
 
-    .highlight{
-        color: #E31B6D;
+    @media only screen and (min-width: $desktop-min-size){
+        height: 80px;
     }
 }

@@ -5,9 +5,8 @@
     width: 100vw;
     height: auto;
 
-    padding-top: 3vh;
-    padding-bottom: 3vh;
-    
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 
     // Desktop
     @media only screen and (min-width: $desktop-min-size) {
@@ -15,18 +14,18 @@
         margin-top: -640px;
         margin-left: 50vw;
         background: rgb(240, 240, 240);
-        padding-bottom: 100px;
         padding-top: 50px;
+        height: inherit;
     }  
 
     h1{
-        margin: 0;
-        padding-top: 0;
-
         // Desktop
         @media only screen and (min-width: $desktop-min-size) {
             display: none;
         }  
+        
+        margin-top: -40px;
+    
     }
 
     #circleContainer{
@@ -61,7 +60,6 @@
             width: 500px;
             float: left;
         }  
-
     }
     
     .bar_container{
@@ -130,10 +128,32 @@
 }
 
 .clearfix::after { 
-    content: " ";
-    display: block; 
-    height: 0; 
-    clear: both;
-    padding-bottom: 70px;
-    background: rgb(238, 236, 236);
+    @media only screen and (min-width: $desktop-min-size){
+        content: " ";
+        display: block; 
+        height: 0; 
+        clear: both;
+        padding-bottom: 120px;
+        background: rgb(238, 236, 236);
+    }
  }
+
+ @-moz-document url-prefix() { 
+    @media only screen and (min-width: $desktop-min-size){
+        #skillsets{
+                #main_text_container{
+                margin-top: -350px !important;
+            }
+        }
+    }   
+}
+
+@supports (-ms-ime-align: auto) {
+    @media only screen and (min-width: $desktop-min-size){
+        #skillsets{
+                #main_text_container{
+                margin-top: -350px !important;
+            }
+        }
+    }   
+}

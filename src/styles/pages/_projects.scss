@@ -2,6 +2,8 @@
 #projects{
     position: relative;
     background: rgb(228, 227, 227);
+    padding-top: 1.5vh;
+    height: auto;
 
     .wrapper{
         padding-bottom: 3vh;
@@ -29,7 +31,7 @@
 
         // Tablets
         @media only screen and (min-width: $tablet-min-size) {
-            width: 80vw;
+            width: 580px;
             margin: 45px auto 16px auto;
         }
 
@@ -132,11 +134,6 @@
             @include tablet_configuration();
         }
 
-        // // Desktop
-        // @media only screen and (min-width: $tablet-min-size) {
-        //     @include desktop_configuration();
-        // }
-
         #one{
             background: url("../assets/screenshots/project1_1.jpg") center center/cover;
         }
@@ -152,7 +149,7 @@
 
     #bcca_project{
         height: 330px;
-        width: 100%;
+        width: 310px;
         margin: 0 auto 0 auto;
 
         // Tablets
@@ -175,7 +172,7 @@
 
     #tetris_project{
         height: 330px;
-        width: 100%;
+        width: 310px;
         margin: 0 auto 0 auto;
 
         // Tablets
@@ -193,10 +190,9 @@
     }
 
     #tipcalc_project{
-        background: url("../assets/screenshots/project4_1.jpg") no-repeat;
-        background-size: 100% 330px;
+        background: url("../assets/screenshots/project4_1.jpg") center center/cover;
         height: 330px;
-        width: 100%;
+        width: 310px;
         margin: 0 auto 0 auto;
 
         // Tablets
@@ -212,9 +208,13 @@
 
         .icon{
             background: rgba(0, 0, 0, 0.068);
-            border-radius: 8px;
-            font-size: 20pt;
+            border-radius: 30px;
+            font-size: 25pt;
             cursor: pointer;
+
+            @media only screen and (min-width: $tablet-min-size){
+                font-size: 30pt;
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 // About Container - Contains "About" me stuff
 #about{
     background: rgb(240, 240, 240);
-    position: relative;
+    // position: relative;
     padding-bottom: 2vh;
 
     // Tablets
@@ -141,11 +141,6 @@
         }
     }
 
-    .divider{
-        text-align: center;
-        color: rgb(116, 15, 126);
-    }
-
     .or-spacer {
         width:200px; 
         margin: 0.5vh auto 0 auto;
@@ -160,46 +155,27 @@
             box-shadow:0 0 8px black;
           }
         }
-        span {
-          $size:50px;
-          width:$size; height:$size; 
-          position:absolute; 
-          bottom:100%; margin-bottom:-$size/2;
-          left:50%; margin-left:-$size/2;
-          border-radius:100%;
-          box-shadow:0 2px 4px #999;
-          background:white;
-        }
-        span i {
-          $offset:4px;
-          position:absolute;
-          top:$offset; bottom:$offset;
-          left:$offset; right:$offset;
-          border-radius:100%;
-          border:1px dashed #aaa;
-          
-          text-align:center;
-          line-height:40px;
-          font-style:normal;
-          color:#999;
-        }
       }
 
     // WHO AM I CONTAINER
     #whoAmIWrapper{
         width: inherit;
-        height: 30em;
         position: relative;
+        padding-bottom: 30px;
+
+        hr{
+            height: 0.4vh;
+        }
 
         // Tablets
         @media only screen and (min-width: $tablet-min-size) {
-            height: 28em;
             padding-top: 65px;
         }
 
         // Desktop
         @media only screen and (min-width: $desktop-min-size) {
             padding-top: 0;
+            height: 28em;
         }
     }
 
@@ -251,11 +227,11 @@
         @media only screen and (min-width: $desktop-min-size) {
             @include height_adjustments(80%, auto, 5vh, 15%);
 
-            padding: 40px 30px 20px 30px;
+            padding: 40px 30px 50px 30px;
 
             left: -10px;
 
-            max-width: 500px;
+            max-width: 550px;
             float: right;
             position: relative;
         }

@@ -4,23 +4,107 @@ var $;
 $ = require('jquery');
 
 $(document).ready(function() {
-    function getMonitorType(){
+  let callback_box = $('#callback_box');
+  callback_box.hide();
 
+    // Bind contact functionality
+    $('#submit').click(function(){
+      // Reset the box
+      callback_box.removeClass('success');
+      callback_box.removeClass('failed');
+
+      let name = $('#name').val();
+      let email = $('#email').val();
+      let message = $('#message').val();
+
+      let callbackMsg = 'null';
+      let success = false;
+
+      // Check if any fields are empty, if so then display callback error message
+      if (name.length < 2){
+        callbackMsg = 'Please enter your full name!';
+      }
+      else if (!email.includes('@')){
+        callbackMsg = 'Please check that this is a valid email!';
+      }
+      else if (message < 1){
+        callbackMsg = 'Please ensure your message is not empty';
+      }
+      else{
+        callbackMsg = 'Success! Your message has been sent. I will try to reply within 12 hours!';
+        success = true;
+      }
+
+      if (success){
+        callback_box.toggleClass('success');
+      }
+      else{
+        callback_box.toggleClass('failed');
+      }
+
+      callback_box.text(callbackMsg);
+      callback_box.slideDown("fast");
+
+      if (success){
+        Email.send({
+          SecureToken : "38177cd3-0fa9-4057-b4d3-aa2f148079ee",
+          To : 'ijimmywei@gmail.com',
+          From : email,
+          Subject : name,
+          Body : message
+          });
+      }
+    });
+
+
+    // On hover scrolling for view my work button
+    $('#view_my_work_button').on(
+    {
+      mouseenter: function()
+      {
+        $(this).find('.icon').toggleClass('rotated');
+      },
+
+      mouseleave: function()
+      {
+        $(this).find('.icon').toggleClass('rotated');
+      }
+    });
+
+    // Check if element is scrolled into view
+    function isScrolledOutOfView(elem) {
+      var docViewTop = $(window).scrollTop();
+
+      var elemTop = $(elem).offset().top;
+      var elemBottom = elemTop + $(elem).height();
+  
+      return ((elemBottom <= docViewTop));
     }
 
     // Check if element is scrolled into view
     function isScrolledIntoView(elem) {
       var docViewTop = $(window).scrollTop();
-      var docViewBottom = docViewTop + $(window).height();
-  
+
       var elemTop = $(elem).offset().top;
       var elemBottom = elemTop + $(elem).height();
   
-      return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+      return ((elemBottom >= docViewTop));
     }
 
-    // If element is scrolled into view, fade it in
+    // Tighter checks
+    function isSectionVisible(elem) {
+      var docViewTop = $(window).scrollTop();
+      var docViewBottom = docViewTop + $(window).height();
+
+      var elemTop = $(elem).offset().top;
+
+      return (elemTop <= docViewBottom);
+    }
+    
+    let nav = $('#navigation');
+
     $(window).scroll(function() {
+      // If element is scrolled into view, fade it in
       $('.animated', '#about').each(function() {
         if (isScrolledIntoView(this) === true) {
             if (this.hasAnimated === undefined){
@@ -29,6 +113,45 @@ $(document).ready(function() {
             this.hasAnimated = true;
         }
       });
+
+      // If introduction is scrolled out of view, activate fixed position nav
+      if (isScrolledOutOfView($('#introduction')) === true){
+        if (!nav.hasClass('fixed')){
+          nav.toggleClass('fixed');
+        }
+      };
+
+      // Disable fixed and anchor back to original position
+      if (isScrolledIntoView($('#introduction')) === true){
+        if (nav.hasClass('fixed')){
+          nav.toggleClass('fixed');
+        }
+      }
+
+      // Update navigation current page link
+      let currentEle = null;
+      $('section').each(function() {
+        if (isSectionVisible(this) === true){
+          // Get the last section shown visible and that will be 
+          currentEle = this;
+        }
+      });
+
+      if (currentEle && isScrolledOutOfView($('#introduction')) === true){
+        let selectedEle = null;
+        // Remove any current active link classes
+        $('.current').each(function(){
+          $(this).removeClass('current');
+        });
+
+        if (currentEle.id === 'skillsets'){
+          selectedEle = 'about';
+        }
+        else{
+          selectedEle = currentEle.id;
+        }
+        nav.find('#nav' + selectedEle.capitalize()).toggleClass('current');
+      }
     });
 
     // Animate the progress bars
@@ -88,7 +211,7 @@ $(document).ready(function() {
         }
 
         // Reveal next slide
-        $(screenshots[currentSlide]).show();
+        $(screenshots[currentSlide]).fadeIn("350");
       });
 
       sliderArrowsR.bind('click', function(){
@@ -101,8 +224,13 @@ $(document).ready(function() {
         else{
           currentSlide += 1;
         }
-          // Reveal next slide
-          $(screenshots[currentSlide]).show();
+        
+        // Reveal next slide
+        $(screenshots[currentSlide]).fadeIn("350");
       });
     });
   });
+
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};

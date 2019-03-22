@@ -1,5 +1,5 @@
-// Contact Us container
-#block_five_container{
+// Contact container
+#contact{
     position: relative;
     background: rgb(5, 69, 104);
     width: 100vw;
@@ -78,5 +78,25 @@
             width: 30%;
             border: 3px solid white;
         }
+    }
+
+    .callback_box{
+        font-size: 0.7em;
+        padding: 20px;
+        margin-top: 2px;
+        color: #fff;
+
+        // Desktop
+        @media only screen and (min-width: $desktop-min-size) {
+            position: absolute;
+        }
+    }
+
+    .success{
+        background: rgb(23, 131, 41);
+    }
+
+    .failed{
+        background: rgb(179, 47, 47);
     }
 }
