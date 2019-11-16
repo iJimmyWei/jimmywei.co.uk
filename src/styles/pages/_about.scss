@@ -125,7 +125,6 @@
             font-size: 0.8em;
             margin: 0 auto 0 auto;
             text-align: center;
-            width: 350px;
 
             // Tablets
             @media only screen and (min-width: $tablet-min-size) {
@@ -155,13 +154,14 @@
             box-shadow:0 0 8px black;
           }
         }
-      }
+    }
 
     // WHO AM I CONTAINER
     #whoAmIWrapper{
         width: inherit;
         position: relative;
         padding-bottom: 30px;
+        background-color: #f0f0f0;
 
         hr{
             height: 0.4vh;

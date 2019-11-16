@@ -7,12 +7,11 @@
 
     padding-top: 5vh;
     padding-bottom: 5vh;
+    flex: 1;
 
     // Desktop
     @media only screen and (min-width: $desktop-min-size) {
         width: 40vw;
-        margin-top: -640px;
-        margin-left: 50vw;
         background: rgb(240, 240, 240);
         padding-top: 50px;
         height: inherit;

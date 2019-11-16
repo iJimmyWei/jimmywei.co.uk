@@ -5,6 +5,7 @@ $ = require('jquery');
 
 $(document).ready(function() {
   let callback_box = $('#callback_box');
+  let form = $('#contact_form');
   callback_box.hide();
 
     // Bind contact functionality
@@ -45,14 +46,14 @@ $(document).ready(function() {
       callback_box.text(callbackMsg);
       callback_box.slideDown("fast");
 
+      var templateParams = {
+        name: name,
+        email: email,
+        msg: message
+      };
+
       if (success){
-        Email.send({
-          SecureToken : "38177cd3-0fa9-4057-b4d3-aa2f148079ee",
-          To : 'ijimmywei@gmail.com',
-          From : email,
-          Subject : name,
-          Body : message
-          });
+        emailjs.send('gmail', 'template_9rTdeHQ5', templateParams);
       }
     });
 
