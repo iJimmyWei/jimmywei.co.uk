@@ -5,58 +5,7 @@ $ = require('jquery');
 
 $(document).ready(function() {
   let callback_box = $('#callback_box');
-  let form = $('#contact_form');
   callback_box.hide();
-
-    // Bind contact functionality
-    $('#submit').click(function(){
-      // Reset the box
-      callback_box.removeClass('success');
-      callback_box.removeClass('failed');
-
-      let name = $('#name').val();
-      let email = $('#email').val();
-      let message = $('#message').val();
-
-      let callbackMsg = 'null';
-      let success = false;
-
-      // Check if any fields are empty, if so then display callback error message
-      if (name.length < 2){
-        callbackMsg = 'Please enter your full name!';
-      }
-      else if (!email.includes('@')){
-        callbackMsg = 'Please check that this is a valid email!';
-      }
-      else if (message < 1){
-        callbackMsg = 'Please ensure your message is not empty';
-      }
-      else{
-        callbackMsg = 'Success! Your message has been sent. I will try to reply within 12 hours!';
-        success = true;
-      }
-
-      if (success){
-        callback_box.toggleClass('success');
-      }
-      else{
-        callback_box.toggleClass('failed');
-      }
-
-      callback_box.text(callbackMsg);
-      callback_box.slideDown("fast");
-
-      var templateParams = {
-        name: name,
-        email: email,
-        msg: message
-      };
-
-      if (success){
-        emailjs.send('gmail', 'template_9rTdeHQ5', templateParams);
-      }
-    });
-
 
     // On hover scrolling for view my work button
     $('#view_my_work_button').on(
