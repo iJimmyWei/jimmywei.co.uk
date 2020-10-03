@@ -60,7 +60,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: "/home/runner/work/jimmywei.co.uk/jimmywei.co.uk/terraform"
+        working-directory: "~/terraform"
 
     steps:
     # Download previously shared build
@@ -68,6 +68,7 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: terraform
+        path: ~/terraform
 
     # Credentials from repository settings/secrets
     - name: Configure AWS credentials
