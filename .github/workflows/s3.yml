@@ -23,17 +23,69 @@ jobs:
     - name: Generate build
       run: npm run build
 
-    # Share artifact inside workflow
-    - name: Share artifact inside workflow
+    # Share deploy artifact
+    - name: Share production build artifact
       uses: actions/upload-artifact@v1
       with:
         name: s3-actions-build
         path: build
-  deploy:
+
+    # Share terraform files
+    - name: Share terraform artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: terraform
+        path: infrastructure
+  setup_infrastructure:
     runs-on: ubuntu-latest
     # When application is successfully tested and build has been generated
     # Then we can start with deployment
     needs: build
+
+    defaults:
+
+      run:
+        working-directory: "/home/runner/work/jimmywei.co.uk/jimmywei.co.uk/terraform"
+
+    steps:
+    # Download previously shared build
+    - name: Get artifact
+      uses: actions/download-artifact@v1
+      with:
+        name: terraform
+
+    # Credentials from repository settings/secrets
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+    # Setup terraform
+    - name: Terraform Setup
+      uses: hashicorp/setup-terraform@v1
+
+    # Initialize
+    - name: Terraform Init
+      run: terraform init
+
+    # Check for any issues
+    - name: Terraform Plan
+      run: terraform plan -no-color
+      continue-on-error: true
+
+    # Execute terraform plan
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      run: terraform apply -auto-approve
+
+  deploy:
+    runs-on: ubuntu-latest
+    # When application is successfully tested and build has been generated
+    # Then we can start with deployment
+    needs: setup_infrastructure
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     steps:
       # Download previously shared build
       - name: Get artifact
