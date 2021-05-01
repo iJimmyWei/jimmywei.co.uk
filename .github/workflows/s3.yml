@@ -1,116 +1,116 @@
-name: S3 Deploy
+# name: S3 Deploy
 
-on: push
+# on: push
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
+#     strategy:
+#       matrix:
+#         node-version: [12.x]
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node-version }}
 
-    - name: Cache node modules
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-node-modules
-      with:
-        # npm cache files are stored in `~/.npm` on Linux/macOS
-        path: ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+#     - name: Cache node modules
+#       uses: actions/cache@v2
+#       env:
+#         cache-name: cache-node-modules
+#       with:
+#         # npm cache files are stored in `~/.npm` on Linux/macOS
+#         path: ~/.npm
+#         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#         restore-keys: |
+#           ${{ runner.os }}-build-${{ env.cache-name }}-
+#           ${{ runner.os }}-build-
+#           ${{ runner.os }}-
 
-    - name: Install dependencies
-      run: npm install
+#     - name: Install dependencies
+#       run: npm install
 
-    - name: Generate build
-      run: npm run build
+#     - name: Generate build
+#       run: npm run build
 
-    # Share deploy artifact
-    - name: Share production build artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: s3-actions-build
-        path: build
+#     # Share deploy artifact
+#     - name: Share production build artifact
+#       uses: actions/upload-artifact@v1
+#       with:
+#         name: s3-actions-build
+#         path: build
 
-    # Share terraform files
-    - name: Share terraform artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: terraform
-        path: infrastructure
-  setup_infrastructure:
-    runs-on: ubuntu-latest
-    # When application is successfully tested and build has been generated
-    # Then we can start with deployment
-    needs: build
+#     # Share terraform files
+#     - name: Share terraform artifact
+#       uses: actions/upload-artifact@v1
+#       with:
+#         name: terraform
+#         path: infrastructure
+#   setup_infrastructure:
+#     runs-on: ubuntu-latest
+#     # When application is successfully tested and build has been generated
+#     # Then we can start with deployment
+#     needs: build
 
-    env:
-      TF_VAR_acm_certificate_arn: ${{ secrets.ACM_CERTIFICATE_ARN }}
+#     env:
+#       TF_VAR_acm_certificate_arn: ${{ secrets.ACM_CERTIFICATE_ARN }}
     
-    defaults:
-      run:
-        working-directory: "~/terraform"
+#     defaults:
+#       run:
+#         working-directory: "~/terraform"
 
-    steps:
-    # Download previously shared build
-    - name: Get artifact
-      uses: actions/download-artifact@v1
-      with:
-        name: terraform
-        path: ~/terraform
+#     steps:
+#     # Download previously shared build
+#     - name: Get artifact
+#       uses: actions/download-artifact@v1
+#       with:
+#         name: terraform
+#         path: ~/terraform
 
-    # Credentials from repository settings/secrets
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+#     # Credentials from repository settings/secrets
+#     - name: Configure AWS credentials
+#       uses: aws-actions/configure-aws-credentials@v1
+#       with:
+#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
-    # Setup terraform
-    - name: Terraform Setup
-      uses: hashicorp/setup-terraform@v1
+#     # Setup terraform
+#     - name: Terraform Setup
+#       uses: hashicorp/setup-terraform@v1
 
-    # Initialize
-    - name: Terraform Init
-      run: terraform init
+#     # Initialize
+#     - name: Terraform Init
+#       run: terraform init
 
-    # Execute terraform plan
-    - name: Terraform Apply
-      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-      run: terraform apply -auto-approve
+#     # Execute terraform plan
+#     - name: Terraform Apply
+#       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+#       run: terraform apply -auto-approve
 
-  deploy:
-    runs-on: ubuntu-latest
-    # When application is successfully tested and build has been generated
-    # Then we can start with deployment
-    needs: setup_infrastructure
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-    steps:
-      # Download previously shared build
-      - name: Get artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: s3-actions-build
-      # Credentials from repository settings/secrets
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
-      # Copy the files from build folder to the S3 bucket
-      - name: Deploy to S3
-        run: aws s3 sync . s3://jimmywei.co.uk --acl public-read
-        working-directory: s3-actions-build
+#   deploy:
+#     runs-on: ubuntu-latest
+#     # When application is successfully tested and build has been generated
+#     # Then we can start with deployment
+#     needs: setup_infrastructure
+#     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+#     steps:
+#       # Download previously shared build
+#       - name: Get artifact
+#         uses: actions/download-artifact@v1
+#         with:
+#           name: s3-actions-build
+#       # Credentials from repository settings/secrets
+#       - name: Configure AWS credentials
+#         uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+#       # Copy the files from build folder to the S3 bucket
+#       - name: Deploy to S3
+#         run: aws s3 sync . s3://jimmywei.co.uk --acl public-read
+#         working-directory: s3-actions-build
