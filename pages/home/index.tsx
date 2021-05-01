@@ -23,7 +23,6 @@ export default function Home() {
         <div className="flex min-h-screen items-center justify-center">
             <Head>
                 <title>Jimmy Wei</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <main className="flex flex-col items-center p-5">
